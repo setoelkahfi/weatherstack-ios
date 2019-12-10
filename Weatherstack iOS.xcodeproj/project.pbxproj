@@ -17,6 +17,7 @@
 		8A0E818B23A03E4600354FE8 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E818A23A03E4600354FE8 /* SearchViewController.m */; };
 		8A0E818E23A0442D00354FE8 /* citylist.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A0E818D23A0442D00354FE8 /* citylist.json */; };
 		8A0E819523A048E900354FE8 /* CityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E819423A048E900354FE8 /* CityList.m */; };
+		8A0E819823A05BCD00354FE8 /* StorageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E819723A05BCD00354FE8 /* StorageUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		8A0E818D23A0442D00354FE8 /* citylist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = citylist.json; sourceTree = SOURCE_ROOT; };
 		8A0E819323A048E900354FE8 /* CityList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityList.h; sourceTree = "<group>"; };
 		8A0E819423A048E900354FE8 /* CityList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityList.m; sourceTree = "<group>"; };
+		8A0E819623A05BCD00354FE8 /* StorageUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageUtil.h; sourceTree = "<group>"; };
+		8A0E819723A05BCD00354FE8 /* StorageUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorageUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,7 @@
 				8A0E818823A03DB900354FE8 /* ViewControllers */,
 				8A0E818C23A043ED00354FE8 /* Resources */,
 				8A0E818F23A0484C00354FE8 /* DataModel */,
+				8A0E819923A05BE000354FE8 /* Utils */,
 				8A0E817823A036E500354FE8 /* Main.storyboard */,
 				8A0E817B23A036EA00354FE8 /* Assets.xcassets */,
 				8A0E817D23A036EA00354FE8 /* LaunchScreen.storyboard */,
@@ -111,6 +115,15 @@
 				8A0E819423A048E900354FE8 /* CityList.m */,
 			);
 			path = DataModel;
+			sourceTree = "<group>";
+		};
+		8A0E819923A05BE000354FE8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8A0E819623A05BCD00354FE8 /* StorageUtil.h */,
+				8A0E819723A05BCD00354FE8 /* StorageUtil.m */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A0E819823A05BCD00354FE8 /* StorageUtil.m in Sources */,
 				8A0E817723A036E500354FE8 /* HomeViewController.m in Sources */,
 				8A0E817123A036E500354FE8 /* AppDelegate.m in Sources */,
 				8A0E819523A048E900354FE8 /* CityList.m in Sources */,

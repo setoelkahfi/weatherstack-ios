@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 #import "CityList.h"
+#import "StorageUtil.h"
 
 @interface SearchViewController ()
 
@@ -72,6 +73,22 @@ static NSString * CellIdentifier = @"Cell";
     cell.detailTextLabel.text = [city objectForKey:@"country"];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSDictionary * city = [self.filteredCities objectAtIndex:indexPath.row];
+    
+    [[StorageUtil sharedInstance] addOrUpdateFavorite:city];
+    
+
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Saved!"
+                                                                    message:[NSString stringWithFormat:@"%@ added as your favorite.", [city objectForKey:@"name"]]
+                                                             preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    //[self presentViewController:alert animated:YES completion:nil];
+   
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UISearchBarDelegate

@@ -15,6 +15,8 @@
 		8A0E817F23A036EA00354FE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A0E817D23A036EA00354FE8 /* LaunchScreen.storyboard */; };
 		8A0E818223A036EA00354FE8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E818123A036EA00354FE8 /* main.m */; };
 		8A0E818B23A03E4600354FE8 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E818A23A03E4600354FE8 /* SearchViewController.m */; };
+		8A0E818E23A0442D00354FE8 /* citylist.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A0E818D23A0442D00354FE8 /* citylist.json */; };
+		8A0E819523A048E900354FE8 /* CityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E819423A048E900354FE8 /* CityList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,9 @@
 		8A0E818123A036EA00354FE8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8A0E818923A03E4600354FE8 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		8A0E818A23A03E4600354FE8 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		8A0E818D23A0442D00354FE8 /* citylist.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = citylist.json; sourceTree = SOURCE_ROOT; };
+		8A0E819323A048E900354FE8 /* CityList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityList.h; sourceTree = "<group>"; };
+		8A0E819423A048E900354FE8 /* CityList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +74,8 @@
 				8A0E817223A036E500354FE8 /* SceneDelegate.h */,
 				8A0E817323A036E500354FE8 /* SceneDelegate.m */,
 				8A0E818823A03DB900354FE8 /* ViewControllers */,
+				8A0E818C23A043ED00354FE8 /* Resources */,
+				8A0E818F23A0484C00354FE8 /* DataModel */,
 				8A0E817823A036E500354FE8 /* Main.storyboard */,
 				8A0E817B23A036EA00354FE8 /* Assets.xcassets */,
 				8A0E817D23A036EA00354FE8 /* LaunchScreen.storyboard */,
@@ -87,6 +94,23 @@
 				8A0E818A23A03E4600354FE8 /* SearchViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8A0E818C23A043ED00354FE8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8A0E818D23A0442D00354FE8 /* citylist.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8A0E818F23A0484C00354FE8 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				8A0E819323A048E900354FE8 /* CityList.h */,
+				8A0E819423A048E900354FE8 /* CityList.m */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +172,7 @@
 			files = (
 				8A0E817F23A036EA00354FE8 /* LaunchScreen.storyboard in Resources */,
 				8A0E817C23A036EA00354FE8 /* Assets.xcassets in Resources */,
+				8A0E818E23A0442D00354FE8 /* citylist.json in Resources */,
 				8A0E817A23A036E500354FE8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +186,7 @@
 			files = (
 				8A0E817723A036E500354FE8 /* HomeViewController.m in Sources */,
 				8A0E817123A036E500354FE8 /* AppDelegate.m in Sources */,
+				8A0E819523A048E900354FE8 /* CityList.m in Sources */,
 				8A0E818B23A03E4600354FE8 /* SearchViewController.m in Sources */,
 				8A0E818223A036EA00354FE8 /* main.m in Sources */,
 				8A0E817423A036E500354FE8 /* SceneDelegate.m in Sources */,

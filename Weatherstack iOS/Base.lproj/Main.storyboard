@@ -93,6 +93,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RHP-Pl-4HV"/>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="5bf-ba-9rk" id="dji-t1-DYl"/>
+                        <outlet property="tableView" destination="Afo-oh-0tl" id="a5Z-Ts-0Ov"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0A3-7H-O3T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

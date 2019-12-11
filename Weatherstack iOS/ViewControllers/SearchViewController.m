@@ -32,6 +32,7 @@ static NSString * CellIdentifier = @"Cell";
     // Do any additional setup after loading the view.
     self.cityList = [[CityList alloc] init];
     
+    
     self.searchBar.delegate = self;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

@@ -18,6 +18,7 @@
 		8A0E818E23A0442D00354FE8 /* citylist.json in Resources */ = {isa = PBXBuildFile; fileRef = 8A0E818D23A0442D00354FE8 /* citylist.json */; };
 		8A0E819523A048E900354FE8 /* CityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E819423A048E900354FE8 /* CityList.m */; };
 		8A0E819823A05BCD00354FE8 /* StorageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E819723A05BCD00354FE8 /* StorageUtil.m */; };
+		8A0E819C23A0733500354FE8 /* APIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E819B23A0733500354FE8 /* APIUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		8A0E819423A048E900354FE8 /* CityList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityList.m; sourceTree = "<group>"; };
 		8A0E819623A05BCD00354FE8 /* StorageUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageUtil.h; sourceTree = "<group>"; };
 		8A0E819723A05BCD00354FE8 /* StorageUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorageUtil.m; sourceTree = "<group>"; };
+		8A0E819A23A0733500354FE8 /* APIUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIUtil.h; sourceTree = "<group>"; };
+		8A0E819B23A0733500354FE8 /* APIUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 			children = (
 				8A0E819623A05BCD00354FE8 /* StorageUtil.h */,
 				8A0E819723A05BCD00354FE8 /* StorageUtil.m */,
+				8A0E819A23A0733500354FE8 /* APIUtil.h */,
+				8A0E819B23A0733500354FE8 /* APIUtil.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				8A0E817723A036E500354FE8 /* HomeViewController.m in Sources */,
 				8A0E817123A036E500354FE8 /* AppDelegate.m in Sources */,
 				8A0E819523A048E900354FE8 /* CityList.m in Sources */,
+				8A0E819C23A0733500354FE8 /* APIUtil.m in Sources */,
 				8A0E818B23A03E4600354FE8 /* SearchViewController.m in Sources */,
 				8A0E818223A036EA00354FE8 /* main.m in Sources */,
 				8A0E817423A036E500354FE8 /* SceneDelegate.m in Sources */,

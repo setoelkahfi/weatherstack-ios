@@ -7,6 +7,7 @@
 //
 
 #import "StorageUtil.h"
+#import "APIUtil.h"
 
 @implementation StorageUtil
 
@@ -46,10 +47,19 @@
         // Maybe update it?
         onExist(@"City already added on your favorite!");
     } else {
-        [favorites addObject:city];
-        [[NSUserDefaults standardUserDefaults] setObject:favorites
-                                                  forKey:@"favorites"];
-        onAdded(@"City added as your favorite");
+        
+        NSString * cityName = [city objectForKey:@"name"];
+        
+        [[APIUtil sharedInstance] getCurrentWeather:cityName withCompletion:^(NSDictionary * _Nonnull dict) {
+            
+            NSMutableDictionary * cityWithWeather = [NSMutableDictionary dictionaryWithDictionary:city];
+            [cityWithWeather setObject:dict forKey:@"current"];
+            [favorites addObject:cityWithWeather];
+            [[NSUserDefaults standardUserDefaults] setObject:favorites
+                                                      forKey:@"favorites"];
+            onAdded(@"City added as your favorite");
+        
+        }];
     }
     
 }

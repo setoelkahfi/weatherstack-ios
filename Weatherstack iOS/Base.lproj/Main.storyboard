@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Weatherstack" id="9GX-eA-Xzf">
-                                        <barButtonItem key="leftBarButtonItem" title="Search" id="JRw-im-gW4">
+                                        <barButtonItem key="leftBarButtonItem" title="Search" image="magnifyingglass" catalog="system" id="JRw-im-gW4">
                                             <connections>
                                                 <action selector="searchOrCancelButtonOnClicked:" destination="BYZ-38-t0r" id="PNh-v0-te1"/>
                                             </connections>
@@ -114,4 +114,7 @@
             <point key="canvasLocation" x="1048" y="121"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
+    </resources>
 </document>

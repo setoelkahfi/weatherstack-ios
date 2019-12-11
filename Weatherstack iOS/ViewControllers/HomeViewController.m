@@ -101,7 +101,7 @@ static NSString * CellIdentifier = @"HomeCell";
         self.editButton.title = @"Edit";
         [self.tableView setEditing:NO animated:YES];
     } else {
-        self.editButton.title = @"Cancel";
+        self.editButton.title = @"Done";
         [self.tableView setEditing:YES animated:YES];
     }
 }

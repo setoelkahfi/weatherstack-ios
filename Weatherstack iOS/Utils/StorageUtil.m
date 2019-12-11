@@ -37,7 +37,7 @@
     if (![self getFavorites]) {
         favorites = [[NSMutableArray alloc] init];
     } else {
-        favorites = [NSMutableArray arrayWithArray:[self getFavorites]];
+        favorites = [[self getFavorites] mutableCopy];
     }
     
     NSNumber * cityId = [city objectForKey:@"id"];
@@ -45,14 +45,20 @@
     if ([self findCityWith:cityId inArray:favorites]) {
         // Already there
         // Maybe update it?
-        onExist(@"City already added on your favorite!");
+        onExist(@"This city is already on your favorites list.");
     } else {
         
         NSString * cityName = [city objectForKey:@"name"];
         
         [[APIUtil sharedInstance] getCurrentWeather:cityName withCompletion:^(NSDictionary * _Nonnull dict) {
             
+            if (!dict) {
+                onAdded(@"Weather detail cannot be retrived.");
+                return;
+            }
+            
             NSMutableDictionary * cityWithWeather = [NSMutableDictionary dictionaryWithDictionary:city];
+            
             [cityWithWeather setObject:dict forKey:@"current"];
             [favorites addObject:cityWithWeather];
             [[NSUserDefaults standardUserDefaults] setObject:favorites
@@ -82,10 +88,23 @@
 }
 
 - (void)deleteFavorite:(NSUInteger)row completion:(void (^)(void))completion {
-    NSMutableArray * favorites = [NSMutableArray arrayWithArray:[self getFavorites]];
     
+    NSMutableArray * favorites = [[self getFavorites] mutableCopy];
     [favorites removeObjectAtIndex:row];
     [[NSUserDefaults standardUserDefaults] setObject:favorites
+                                              forKey:@"favorites"];
+    completion();
+}
+
+- (void)reorderFavoritesAtIndex:(NSInteger)sourceIndex toIndex:(NSInteger)destinationIndex completion:( void (^)(void))completion {
+    
+    NSArray * favorites = [self getFavorites];
+    NSMutableArray * reorderedFavorites = [favorites mutableCopy];
+    NSDictionary * movedCity = [favorites objectAtIndex:sourceIndex];
+    [reorderedFavorites removeObjectAtIndex:sourceIndex];
+    [reorderedFavorites insertObject:movedCity atIndex:destinationIndex];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:reorderedFavorites
                                               forKey:@"favorites"];
     
     completion();

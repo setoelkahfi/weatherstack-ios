@@ -12,6 +12,8 @@
 
 @interface HomeViewController ()
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -34,7 +36,7 @@ static NSString * CellIdentifier = @"HomeCell";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([segue.identifier isEqualToString:@"openSearch"]) {
+    if ([segue.identifier isEqualToString:@"searchSegue"]) {
         
         SearchViewController * viewController = (SearchViewController *) segue.destinationViewController;
         viewController.onCityAddedCallback = ^() {
@@ -59,8 +61,15 @@ static NSString * CellIdentifier = @"HomeCell";
         
     NSDictionary * city = [[[StorageUtil sharedInstance] getFavorites] objectAtIndex:indexPath.row];
         
-    cell.textLabel.text = [city objectForKey:@"name"];
-    cell.detailTextLabel.text = [city objectForKey:@"country"];
+    NSString * name = [city objectForKey:@"name"];
+    NSString * country = [city objectForKey:@"country"];
+    NSDictionary * weather = [city objectForKey:@"current"];
+    NSString * temperature = [weather objectForKey:@"temperature"];
+    NSString * windSpeed = [weather objectForKey:@"wind_speed"];
+    NSString * windDir = [weather objectForKey:@"wind_dir"];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@, Temp: %@ degrees, Wind speed/direction: %@/%@", name, temperature, windSpeed, windDir];
+    cell.detailTextLabel.text = country;
         
     return cell;
 }
@@ -77,6 +86,29 @@ static NSString * CellIdentifier = @"HomeCell";
             [self.tableView reloadData];
         }];
     }
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
+    [[StorageUtil sharedInstance] reorderFavoritesAtIndex:sourceIndexPath.row toIndex:destinationIndexPath.row completion:^{
+       // Do nothing
+    }];
+}
+
+- (IBAction)editButtonOnClicked:(id)sender {
+    
+    if ([self.tableView isEditing]) {
+        self.editButton.title = @"Edit";
+        [self.tableView setEditing:NO animated:YES];
+    } else {
+        self.editButton.title = @"Cancel";
+        [self.tableView setEditing:YES animated:YES];
+    }
+}
+
+- (IBAction)searchOrCancelButtonOnClicked:(id)sender {
+    
+    [self performSegueWithIdentifier:@"searchSegue" sender:nil];
 }
 
 @end

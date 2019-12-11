@@ -21,7 +21,7 @@
     return sharedInstance;
 }
 
-- (void)getCurrentWeather:(NSString *)city withCompletion:(void (^)(NSDictionary * _Nonnull))completion {
+- (void)getCurrentWeather:(NSString *)city withCompletion:(void (^)(NSDictionary * _Nullable))completion {
     
     NSString * accessKey = @"9350ec4293192336ba5aed587b59e08d";
 

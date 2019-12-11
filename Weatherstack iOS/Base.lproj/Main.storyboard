@@ -19,9 +19,14 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Weatherstack" id="9GX-eA-Xzf">
-                                        <barButtonItem key="rightBarButtonItem" title="Search" id="7S5-vO-32z">
+                                        <barButtonItem key="leftBarButtonItem" title="Search" id="JRw-im-gW4">
                                             <connections>
-                                                <segue destination="g7l-3R-aWA" kind="presentation" identifier="openSearch" id="rP6-A0-iUy"/>
+                                                <action selector="searchOrCancelButtonOnClicked:" destination="BYZ-38-t0r" id="PNh-v0-te1"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Edit" id="7S5-vO-32z">
+                                            <connections>
+                                                <action selector="editButtonOnClicked:" destination="BYZ-38-t0r" id="0F4-Qz-XGd"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -45,7 +50,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="editButton" destination="7S5-vO-32z" id="Sqj-dU-9s2"/>
+                        <outlet property="searchButton" destination="JRw-im-gW4" id="ppN-7P-cvq"/>
                         <outlet property="tableView" destination="cSh-aA-UIU" id="ctg-4g-vKB"/>
+                        <segue destination="g7l-3R-aWA" kind="presentation" identifier="searchSegue" id="oRh-dr-gYG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

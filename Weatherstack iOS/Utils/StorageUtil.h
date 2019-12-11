@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSArray<NSDictionary *> *)getFavorites;
 -(void)addOrUpdateFavorite:(NSDictionary *)city onAdded:(void ( ^ )( NSString * ) )onAdded onExist:(void ( ^ )( NSString * ) )onExist;
 -(void)deleteFavorite:(NSUInteger)row completion:(void ( ^ )( void ) )completion;
+-(void)reorderFavoritesAtIndex:(NSInteger)sourceIndex toIndex:(NSInteger)destinationIndex completion:(void ( ^ )( void ) )completion;
 
 @end
 

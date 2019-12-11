@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavoriteTableViewCell" rowHeight="100" id="KGk-i7-Jjw" customClass="FavoriteTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="337" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="337" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2m-ts-tfn" userLabel="City Label">
+                        <rect key="frame" x="8" y="8" width="203" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRD-PY-BUd" userLabel="Wind Speed Label">
+                        <rect key="frame" x="8" y="37" width="203" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTO-Pd-dkS" userLabel="Wind Direction Label">
+                        <rect key="frame" x="8" y="66" width="203" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="70" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQZ-lQ-kVY" userLabel="Temperature Label">
+                        <rect key="frame" x="219" y="50.5" width="42" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="wyV-o0-fmt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM7-tn-gOM" userLabel="Weather Description">
+                        <rect key="frame" x="282" y="8" width="45" height="17"/>
+                        <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cld-1c-2Kl">
+                        <rect key="frame" x="269" y="33" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="ZwM-eW-QVM"/>
+                            <constraint firstAttribute="width" constant="60" id="peq-Y7-nsR"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="cld-1c-2Kl" firstAttribute="leading" secondItem="hQZ-lQ-kVY" secondAttribute="trailing" constant="8" id="0n5-Tm-aIC"/>
+                    <constraint firstItem="fRD-PY-BUd" firstAttribute="top" secondItem="Z2m-ts-tfn" secondAttribute="bottom" constant="8" id="1gm-YS-EdA"/>
+                    <constraint firstItem="hQZ-lQ-kVY" firstAttribute="leading" secondItem="fTO-Pd-dkS" secondAttribute="trailing" constant="8" id="1iX-ec-6p6"/>
+                    <constraint firstItem="Z2m-ts-tfn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="3f2-sV-agG"/>
+                    <constraint firstItem="hQZ-lQ-kVY" firstAttribute="leading" secondItem="Z2m-ts-tfn" secondAttribute="trailing" constant="8" id="7zs-Fz-LLN"/>
+                    <constraint firstAttribute="trailing" secondItem="cld-1c-2Kl" secondAttribute="trailing" constant="8" id="9fQ-e7-Qzw"/>
+                    <constraint firstItem="cld-1c-2Kl" firstAttribute="top" secondItem="lM7-tn-gOM" secondAttribute="bottom" constant="8" id="DSR-Fh-zmN"/>
+                    <constraint firstItem="lM7-tn-gOM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="GTr-G9-jfR"/>
+                    <constraint firstAttribute="trailing" secondItem="lM7-tn-gOM" secondAttribute="trailing" constant="10" id="H7h-Ab-CC8"/>
+                    <constraint firstItem="hQZ-lQ-kVY" firstAttribute="leading" secondItem="fRD-PY-BUd" secondAttribute="trailing" constant="8" id="I3K-dm-83K"/>
+                    <constraint firstItem="hQZ-lQ-kVY" firstAttribute="centerY" secondItem="cld-1c-2Kl" secondAttribute="centerY" id="LNE-s3-GJi"/>
+                    <constraint firstItem="fTO-Pd-dkS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="hrd-mL-DI0"/>
+                    <constraint firstItem="Z2m-ts-tfn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="o45-dU-Hwk"/>
+                    <constraint firstItem="fRD-PY-BUd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="obF-rK-vHd"/>
+                    <constraint firstItem="fTO-Pd-dkS" firstAttribute="top" secondItem="fRD-PY-BUd" secondAttribute="bottom" constant="8" id="pRN-Nz-7Gf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="cityLabel" destination="Z2m-ts-tfn" id="HCG-Me-xHd"/>
+                <outlet property="temperatureLabel" destination="hQZ-lQ-kVY" id="Vfy-Q2-EAT"/>
+                <outlet property="weatherDescription" destination="lM7-tn-gOM" id="c6k-FW-Ncp"/>
+                <outlet property="weatherIcon" destination="cld-1c-2Kl" id="iJs-Dp-wy1"/>
+                <outlet property="windDirectionLabel" destination="fTO-Pd-dkS" id="O0m-gG-JUH"/>
+                <outlet property="windSpeedLabel" destination="fRD-PY-BUd" id="VGA-Y9-9Qe"/>
+            </connections>
+            <point key="canvasLocation" x="148.55072463768118" y="150.66964285714286"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -9,6 +9,8 @@
 #import "HomeViewController.h"
 #import "StorageUtil.h"
 #import "SearchViewController.h"
+#import "FavoriteTableViewCell.h"
+#import "APIUtil.h"
 
 @interface HomeViewController ()
 
@@ -20,7 +22,7 @@
 
 @implementation HomeViewController
 
-static NSString * CellIdentifier = @"HomeCell";
+static NSString * CellIdentifier = @"FavoriteTableViewCell";
 
 #pragma mark - UI lifecycle
 
@@ -30,6 +32,8 @@ static NSString * CellIdentifier = @"HomeCell";
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    [self.tableView registerNib:[UINib nibWithNibName:@"FavoriteTableViewCell" bundle:nil]
+         forCellReuseIdentifier:CellIdentifier];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
 }
@@ -52,11 +56,16 @@ static NSString * CellIdentifier = @"HomeCell";
     return [[[StorageUtil sharedInstance] getFavorites] count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    FavoriteTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[FavoriteTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
         
     NSDictionary * city = [[[StorageUtil sharedInstance] getFavorites] objectAtIndex:indexPath.row];
@@ -67,9 +76,34 @@ static NSString * CellIdentifier = @"HomeCell";
     NSString * temperature = [weather objectForKey:@"temperature"];
     NSString * windSpeed = [weather objectForKey:@"wind_speed"];
     NSString * windDir = [weather objectForKey:@"wind_dir"];
+    NSString * weatherDescriptions = [[weather objectForKey:@"weather_descriptions"] componentsJoinedByString:@", "];
+    // For simplification, only take first element
+    NSString * weatherIcon = [[weather objectForKey:@"weather_icons"] firstObject];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@, Temp: %@ degrees, Wind speed/direction: %@/%@", name, temperature, windSpeed, windDir];
-    cell.detailTextLabel.text = country;
+    cell.cityLabel.text = [NSString stringWithFormat:@"%@, %@", name, country];
+    cell.windSpeedLabel.text = [NSString stringWithFormat:@"Wind speed: %@", windSpeed];
+    cell.windDirectionLabel.text = [NSString stringWithFormat:@"Wind direction: %@", windDir];
+    cell.temperatureLabel.text = [NSString stringWithFormat:@"%@%@", temperature, @"\u00B0"];
+    cell.weatherDescription.text = weatherDescriptions;
+    
+    if (weatherIcon) {
+        UIImage * image = [[APIUtil sharedInstance] imageForKey:weatherIcon];
+        if (image) {
+            [cell.weatherIcon setImage:image];
+        } else {
+            
+            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+            
+            dispatch_async(queue, ^{
+                UIImage * image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:weatherIcon]]];
+                [[APIUtil sharedInstance] setImage:image forKey:weatherIcon];
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [cell.weatherIcon setImage:image];
+                    [cell setNeedsLayout];
+                });
+            });
+        }
+    }
         
     return cell;
 }

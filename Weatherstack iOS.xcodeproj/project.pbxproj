@@ -19,6 +19,8 @@
 		8A0E819523A048E900354FE8 /* CityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E819423A048E900354FE8 /* CityList.m */; };
 		8A0E819823A05BCD00354FE8 /* StorageUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E819723A05BCD00354FE8 /* StorageUtil.m */; };
 		8A0E819C23A0733500354FE8 /* APIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E819B23A0733500354FE8 /* APIUtil.m */; };
+		8A7DD3A923A1A885007DF905 /* FavoriteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7DD3A723A1A885007DF905 /* FavoriteTableViewCell.m */; };
+		8A7DD3AA23A1A885007DF905 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7DD3A823A1A885007DF905 /* FavoriteTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,9 @@
 		8A0E819723A05BCD00354FE8 /* StorageUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StorageUtil.m; sourceTree = "<group>"; };
 		8A0E819A23A0733500354FE8 /* APIUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIUtil.h; sourceTree = "<group>"; };
 		8A0E819B23A0733500354FE8 /* APIUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIUtil.m; sourceTree = "<group>"; };
+		8A7DD3A623A1A885007DF905 /* FavoriteTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoriteTableViewCell.h; sourceTree = "<group>"; };
+		8A7DD3A723A1A885007DF905 /* FavoriteTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoriteTableViewCell.m; sourceTree = "<group>"; };
+		8A7DD3A823A1A885007DF905 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,17 +80,13 @@
 		8A0E816E23A036E500354FE8 /* Weatherstack iOS */ = {
 			isa = PBXGroup;
 			children = (
-				8A0E816F23A036E500354FE8 /* AppDelegate.h */,
-				8A0E817023A036E500354FE8 /* AppDelegate.m */,
-				8A0E817223A036E500354FE8 /* SceneDelegate.h */,
-				8A0E817323A036E500354FE8 /* SceneDelegate.m */,
+				8A7DD3A523A1A866007DF905 /* Cells */,
+				8A7DD3A323A1A80D007DF905 /* Delegates */,
 				8A0E818823A03DB900354FE8 /* ViewControllers */,
 				8A0E818C23A043ED00354FE8 /* Resources */,
 				8A0E818F23A0484C00354FE8 /* DataModel */,
 				8A0E819923A05BE000354FE8 /* Utils */,
-				8A0E817823A036E500354FE8 /* Main.storyboard */,
-				8A0E817B23A036EA00354FE8 /* Assets.xcassets */,
-				8A0E817D23A036EA00354FE8 /* LaunchScreen.storyboard */,
+				8A7DD3A423A1A846007DF905 /* Storyboards */,
 				8A0E818023A036EA00354FE8 /* Info.plist */,
 				8A0E818123A036EA00354FE8 /* main.m */,
 			);
@@ -106,6 +107,7 @@
 		8A0E818C23A043ED00354FE8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8A0E817B23A036EA00354FE8 /* Assets.xcassets */,
 				8A0E818D23A0442D00354FE8 /* citylist.json */,
 			);
 			path = Resources;
@@ -129,6 +131,36 @@
 				8A0E819B23A0733500354FE8 /* APIUtil.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8A7DD3A323A1A80D007DF905 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				8A0E816F23A036E500354FE8 /* AppDelegate.h */,
+				8A0E817023A036E500354FE8 /* AppDelegate.m */,
+				8A0E817223A036E500354FE8 /* SceneDelegate.h */,
+				8A0E817323A036E500354FE8 /* SceneDelegate.m */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		8A7DD3A423A1A846007DF905 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8A0E817823A036E500354FE8 /* Main.storyboard */,
+				8A0E817D23A036EA00354FE8 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8A7DD3A523A1A866007DF905 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8A7DD3A623A1A885007DF905 /* FavoriteTableViewCell.h */,
+				8A7DD3A723A1A885007DF905 /* FavoriteTableViewCell.m */,
+				8A7DD3A823A1A885007DF905 /* FavoriteTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +222,7 @@
 			files = (
 				8A0E817F23A036EA00354FE8 /* LaunchScreen.storyboard in Resources */,
 				8A0E817C23A036EA00354FE8 /* Assets.xcassets in Resources */,
+				8A7DD3AA23A1A885007DF905 /* FavoriteTableViewCell.xib in Resources */,
 				8A0E818E23A0442D00354FE8 /* citylist.json in Resources */,
 				8A0E817A23A036E500354FE8 /* Main.storyboard in Resources */,
 			);
@@ -208,6 +241,7 @@
 				8A0E819523A048E900354FE8 /* CityList.m in Sources */,
 				8A0E819C23A0733500354FE8 /* APIUtil.m in Sources */,
 				8A0E818B23A03E4600354FE8 /* SearchViewController.m in Sources */,
+				8A7DD3A923A1A885007DF905 /* FavoriteTableViewCell.m in Sources */,
 				8A0E818223A036EA00354FE8 /* main.m in Sources */,
 				8A0E817423A036E500354FE8 /* SceneDelegate.m in Sources */,
 			);

@@ -8,6 +8,12 @@
 
 #import "APIUtil.h"
 
+@interface APIUtil ()
+
+@property (strong, nonatomic) NSMutableDictionary * weatherIcons;
+
+@end
+
 @implementation APIUtil
 
 + (instancetype)sharedInstance {
@@ -61,6 +67,14 @@
         }
     }
     return output;
+}
+
+- (UIImage *)imageForKey:(NSString *)url {
+    return [self.weatherIcons objectForKey:url];
+}
+
+- (void)setImage:(UIImage *)image forKey:(NSString *)url {
+    [self.weatherIcons setObject:image forKey:url];
 }
 
 @end

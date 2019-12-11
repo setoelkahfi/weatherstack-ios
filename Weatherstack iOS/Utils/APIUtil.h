@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedInstance;
 
 - (void)getCurrentWeather:(NSString *)city withCompletion:(void ( ^ )( NSDictionary * ) )completion;
+- (UIImage *)imageForKey:(NSString *)url;
+- (void)setImage:(UIImage *)image forKey:(NSString *)url;
 
 @end
 

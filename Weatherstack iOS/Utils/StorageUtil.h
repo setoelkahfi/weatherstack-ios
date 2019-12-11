@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(instancetype)sharedInstance;
 
 -(NSArray<NSDictionary *> *)getFavorites;
--(void)addOrUpdateFavorite:(NSDictionary *)city;
+-(void)addOrUpdateFavorite:(NSDictionary *)city onAdded:(void ( ^ )( NSString * ) )onAdded onExist:(void ( ^ )( NSString * ) )onExist;
 
 @end
 

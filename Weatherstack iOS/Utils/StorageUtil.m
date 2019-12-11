@@ -29,7 +29,7 @@
     return favorites;
 }
 
-- (void)addOrUpdateFavorite:(NSDictionary *)city {
+- (void)addOrUpdateFavorite:(NSDictionary *)city onAdded:(void (^)(NSString * _Nonnull))onAdded onExist:(void (^)(NSString * _Nonnull))onExist {
     
     NSMutableArray * favorites;
     
@@ -44,10 +44,12 @@
     if ([self findCityWith:cityId inArray:favorites]) {
         // Already there
         // Maybe update it?
+        onExist(@"City already added on your favorite!");
     } else {
         [favorites addObject:city];
         [[NSUserDefaults standardUserDefaults] setObject:favorites
                                                   forKey:@"favorites"];
+        onAdded(@"City added as your favorite");
     }
     
 }

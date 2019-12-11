@@ -79,16 +79,23 @@ static NSString * CellIdentifier = @"Cell";
     
     NSDictionary * city = [self.filteredCities objectAtIndex:indexPath.row];
     
-    [[StorageUtil sharedInstance] addOrUpdateFavorite:city];
-    
-
-    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Saved!"
-                                                                    message:[NSString stringWithFormat:@"%@ added as your favorite.", [city objectForKey:@"name"]]
-                                                             preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    //[self presentViewController:alert animated:YES completion:nil];
-   
-    //[self dismissViewControllerAnimated:YES completion:nil];
+    [[StorageUtil sharedInstance] addOrUpdateFavorite:city onAdded:^(NSString * _Nonnull message) {
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    } onExist:^(NSString * _Nonnull message) {
+        
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"Exist"
+                                                                        message:message
+                                                                 preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [alert dismissViewControllerAnimated:YES completion:nil];
+        });
+        
+    }];
 }
 
 #pragma mark - UISearchBarDelegate

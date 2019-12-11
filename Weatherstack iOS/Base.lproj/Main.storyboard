@@ -21,7 +21,7 @@
                                     <navigationItem title="Weatherstack" id="9GX-eA-Xzf">
                                         <barButtonItem key="rightBarButtonItem" title="Search" id="7S5-vO-32z">
                                             <connections>
-                                                <segue destination="g7l-3R-aWA" kind="presentation" id="rP6-A0-iUy"/>
+                                                <segue destination="g7l-3R-aWA" kind="presentation" identifier="openSearch" id="rP6-A0-iUy"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

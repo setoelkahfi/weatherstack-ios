@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "StorageUtil.h"
+#import "SearchViewController.h"
 
 @interface HomeViewController ()
 
@@ -28,6 +29,18 @@ static NSString * CellIdentifier = @"HomeCell";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"openSearch"]) {
+        
+        SearchViewController * viewController = (SearchViewController *) segue.destinationViewController;
+        viewController.onCityAddedCallback = ^() {
+            [self.tableView reloadData];
+        };
+        
+    }
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource

@@ -81,7 +81,7 @@ static NSString * CellIdentifier = @"Cell";
     
     [[StorageUtil sharedInstance] addOrUpdateFavorite:city onAdded:^(NSString * _Nonnull message) {
         
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:self.onCityAddedCallback];
         
     } onExist:^(NSString * _Nonnull message) {
         

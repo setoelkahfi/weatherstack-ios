@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
+@property (nonatomic, copy) void (^onCityAddedCallback)(void);
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -28,6 +28,7 @@ static NSString * CellIdentifier = @"HomeCell";
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
     
 }
 
@@ -62,6 +63,20 @@ static NSString * CellIdentifier = @"HomeCell";
     cell.detailTextLabel.text = [city objectForKey:@"country"];
         
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [[StorageUtil sharedInstance] deleteFavorite:indexPath.row completion:^{
+
+            [self.tableView reloadData];
+        }];
+    }
 }
 
 @end

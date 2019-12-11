@@ -25,7 +25,7 @@
 - (NSArray<NSDictionary *> *)getFavorites {
     
     NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-    NSMutableArray * favorites = [defaults objectForKey:@"favorites"];
+    NSArray * favorites = [defaults objectForKey:@"favorites"];
     
     return favorites;
 }
@@ -79,6 +79,16 @@
     }];
 
     return found;
+}
+
+- (void)deleteFavorite:(NSUInteger)row completion:(void (^)(void))completion {
+    NSMutableArray * favorites = [NSMutableArray arrayWithArray:[self getFavorites]];
+    
+    [favorites removeObjectAtIndex:row];
+    [[NSUserDefaults standardUserDefaults] setObject:favorites
+                                              forKey:@"favorites"];
+    
+    completion();
 }
 
 @end

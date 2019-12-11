@@ -12,10 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StorageUtil : NSObject
 
+
 +(instancetype)sharedInstance;
 
 -(NSArray<NSDictionary *> *)getFavorites;
 -(void)addOrUpdateFavorite:(NSDictionary *)city onAdded:(void ( ^ )( NSString * ) )onAdded onExist:(void ( ^ )( NSString * ) )onExist;
+-(void)deleteFavorite:(NSUInteger)row completion:(void ( ^ )( void ) )completion;
 
 @end
 

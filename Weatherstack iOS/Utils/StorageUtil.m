@@ -113,26 +113,24 @@
 - (void)refreshFavoritesWeather:(void (^)(void))completion {
     
     NSArray * favorites = [self getFavorites];
-    NSMutableArray * updatedFavorites = [[NSMutableArray alloc] init];
+    NSMutableArray * updatedFavorites = [favorites mutableCopy];
     
     dispatch_group_t group = dispatch_group_create();
     
     for (NSDictionary * city in favorites) {
         
         NSString * cityName = [city objectForKey:@"name"];
+        NSUInteger index = [favorites indexOfObject:city];
         
         dispatch_group_enter(group);
         
         [[APIUtil sharedInstance] getCurrentWeather:cityName withCompletion:^(NSDictionary * _Nonnull dict) {
             
-            NSMutableDictionary * cityWithWeather = [city mutableCopy];
-            
             if (dict) {
+                NSMutableDictionary * cityWithWeather = [city mutableCopy];
                 [cityWithWeather setObject:dict forKey:@"current"];
+                [updatedFavorites replaceObjectAtIndex:index withObject:cityWithWeather];
             }
-            
-            
-            [updatedFavorites addObject:cityWithWeather];
             
             dispatch_group_leave(group);
         }];

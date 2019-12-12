@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) UIRefreshControl * refreshControl;
+
 @end
 
 @implementation HomeViewController
@@ -29,6 +31,15 @@ static NSString * CellIdentifier = @"FavoriteTableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+
+    if (@available(iOS 10.0, *)) {
+        self.tableView.refreshControl = self.refreshControl;
+    } else {
+        [self.tableView addSubview:self.refreshControl];
+    }
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -57,7 +68,7 @@ static NSString * CellIdentifier = @"FavoriteTableViewCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 100;
+    return 110;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -129,6 +140,8 @@ static NSString * CellIdentifier = @"FavoriteTableViewCell";
     }];
 }
 
+#pragma mark - IBActions
+
 - (IBAction)editButtonOnClicked:(id)sender {
     
     if ([self.tableView isEditing]) {
@@ -143,6 +156,14 @@ static NSString * CellIdentifier = @"FavoriteTableViewCell";
 - (IBAction)searchOrCancelButtonOnClicked:(id)sender {
     
     [self performSegueWithIdentifier:@"searchSegue" sender:nil];
+}
+
+- (void)refreshTable {
+    [[StorageUtil sharedInstance] refreshFavoritesWeather:^{
+        
+        [self.refreshControl endRefreshing];
+        [self.tableView reloadData];
+    }];
 }
 
 @end

@@ -110,4 +110,46 @@
     completion();
 }
 
+- (void)refreshFavoritesWeather:(void (^)(void))completion {
+    
+    NSArray * favorites = [self getFavorites];
+    NSMutableArray * updatedFavorites = [[NSMutableArray alloc] init];
+    
+    dispatch_group_t group = dispatch_group_create();
+    
+    for (NSDictionary * city in favorites) {
+        
+        NSString * cityName = [city objectForKey:@"name"];
+        
+        dispatch_group_enter(group);
+        
+        [[APIUtil sharedInstance] getCurrentWeather:cityName withCompletion:^(NSDictionary * _Nonnull dict) {
+            
+            NSMutableDictionary * cityWithWeather = [city mutableCopy];
+            
+            if (dict) {
+                [cityWithWeather setObject:dict forKey:@"current"];
+            }
+            
+            
+            [updatedFavorites addObject:cityWithWeather];
+            
+            dispatch_group_leave(group);
+        }];
+        
+    }
+    
+    
+    dispatch_group_notify(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
+        [[NSUserDefaults standardUserDefaults] setObject:updatedFavorites
+                                                  forKey:@"favorites"];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
+    });
+    
+}
+
 @end

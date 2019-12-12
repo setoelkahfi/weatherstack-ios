@@ -30,8 +30,8 @@
             filePath = "Weatherstack iOS/Utils/StorageUtil.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "-findCityWith:inArray:"
             landmarkType = "7">
             <Locations>
@@ -93,8 +93,8 @@
             filePath = "Weatherstack iOS/Utils/StorageUtil.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "-findCityWith:inArray:"
             landmarkType = "7">
          </BreakpointContent>
@@ -109,8 +109,8 @@
             filePath = "Weatherstack iOS/Utils/StorageUtil.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "-findCityWith:inArray:"
             landmarkType = "7">
          </BreakpointContent>
@@ -125,8 +125,8 @@
             filePath = "Weatherstack iOS/Utils/StorageUtil.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "-findCityWith:inArray:"
             landmarkType = "7">
             <Locations>
@@ -213,38 +213,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "43D33DB5-7143-484F-801E-42CA82C52DB5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Weatherstack iOS/Utils/StorageUtil.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-addOrUpdateFavorite:onAdded:onExist:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6D1D2C12-77F1-4AEB-9359-75EF479C2A24"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Weatherstack iOS/Utils/StorageUtil.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "-addOrUpdateFavorite:onAdded:onExist:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C4CC9D46-1D34-4667-AD33-3C2921F39D28"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -252,8 +220,8 @@
             filePath = "Weatherstack iOS/Utils/StorageUtil.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "-deleteFavorite:completion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -268,8 +236,8 @@
             filePath = "Weatherstack iOS/Utils/StorageUtil.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "-deleteFavorite:completion:"
             landmarkType = "7">
          </BreakpointContent>
@@ -316,8 +284,8 @@
             filePath = "Weatherstack iOS/Utils/StorageUtil.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
             landmarkName = "-refreshFavoritesWeather:"
             landmarkType = "7">
          </BreakpointContent>

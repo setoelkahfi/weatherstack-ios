@@ -32,41 +32,53 @@
 
 - (void)addOrUpdateFavorite:(NSDictionary *)city onAdded:(void (^)(NSString * _Nonnull))onAdded onExist:(void (^)(NSString * _Nonnull))onExist {
     
-    NSMutableArray * favorites;
-    
-    if (![self getFavorites]) {
-        favorites = [[NSMutableArray alloc] init];
-    } else {
-        favorites = [[self getFavorites] mutableCopy];
-    }
-    
-    NSNumber * cityId = [city objectForKey:@"id"];
-    
-    if ([self findCityWith:cityId inArray:favorites]) {
-        // Already there
-        // Maybe update it?
-        onExist(@"This city is already on your favorites list.");
-    } else {
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+
+        NSMutableArray * favorites;
         
-        NSString * cityName = [city objectForKey:@"name"];
+        if (![self getFavorites]) {
+            favorites = [[NSMutableArray alloc] init];
+        } else {
+            favorites = [[self getFavorites] mutableCopy];
+        }
+    
+        NSNumber * cityId = [city objectForKey:@"id"];
         
-        [[APIUtil sharedInstance] getCurrentWeather:cityName withCompletion:^(NSDictionary * _Nonnull dict) {
+        if ([self findCityWith:cityId inArray:favorites]) {
+            // Already there
+            // Maybe update it?
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                onExist(@"This city is already on your favorites list.");
+            });
+        } else {
             
-            if (!dict) {
-                onAdded(@"Weather detail cannot be retrived.");
-                return;
-            }
+            NSString * cityName = [city objectForKey:@"name"];
             
-            NSMutableDictionary * cityWithWeather = [NSMutableDictionary dictionaryWithDictionary:city];
+            [[APIUtil sharedInstance] getCurrentWeather:cityName withCompletion:^(NSDictionary * _Nonnull dict) {
+                
+                if (!dict) {
+                    dispatch_async(dispatch_get_main_queue(), ^(void){
+                        onAdded(@"Weather detail cannot be retrived.");
+                    });
+                    return;
+                }
+                
+                NSMutableDictionary * cityWithWeather = [NSMutableDictionary dictionaryWithDictionary:city];
+                
+                [cityWithWeather setObject:dict forKey:@"current"];
+                [favorites addObject:cityWithWeather];
+                [[NSUserDefaults standardUserDefaults] setObject:favorites
+                                                          forKey:@"favorites"];
+
+                dispatch_async(dispatch_get_main_queue(), ^(void){
+                    onAdded(@"City added as your favorite");
+                });
             
-            [cityWithWeather setObject:dict forKey:@"current"];
-            [favorites addObject:cityWithWeather];
-            [[NSUserDefaults standardUserDefaults] setObject:favorites
-                                                      forKey:@"favorites"];
-            onAdded(@"City added as your favorite");
-        
-        }];
-    }
+            }];
+        }
+            
+
+    });
     
 }
 

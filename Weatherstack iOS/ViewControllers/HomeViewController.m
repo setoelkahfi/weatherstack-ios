@@ -46,7 +46,6 @@ static NSString * CellIdentifier = @"FavoriteTableViewCell";
     [self.tableView registerNib:[UINib nibWithNibName:@"FavoriteTableViewCell" bundle:nil]
          forCellReuseIdentifier:CellIdentifier];
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -143,6 +142,9 @@ static NSString * CellIdentifier = @"FavoriteTableViewCell";
 #pragma mark - IBActions
 
 - (IBAction)editButtonOnClicked:(id)sender {
+    
+    if (![[StorageUtil sharedInstance] getFavorites])
+        return;
     
     if ([self.tableView isEditing]) {
         self.editButton.title = @"Edit";
